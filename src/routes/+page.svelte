@@ -5,12 +5,12 @@
   import Tag from '$lib/components/Tag.svelte';
   import Project from '$lib/components/Project.svelte';
   import imageView from '$lib/stores/imageView.svelte';
-  import { Icon, XMark } from 'svelte-hero-icons';
+  import { ArrowLeft, ArrowRight, Icon, XMark } from 'svelte-hero-icons';
   import { fade } from 'svelte/transition';
 
   function onBackgroundClick(event: MouseEvent) {
     const element = event.target as HTMLElement;
-    if (element.tagName !== 'IMG')
+    if (element.tagName === 'DIV')
       imageView.image = null;
   }
 
@@ -22,6 +22,16 @@
 
   function closeImage() {
     imageView.image = null;
+  }
+
+  function previousImage() {
+    imageView.index = (imageView.index - 1 + imageView.allImages.length) % imageView.allImages.length;
+    imageView.image = imageView.allImages[imageView.index];
+  }
+
+  function nextImage() {
+    imageView.index = (imageView.index + 1) % imageView.allImages.length;
+    imageView.image = imageView.allImages[imageView.index];
   }
 
   type ExperienceDisplay = Experience & {
@@ -97,7 +107,23 @@
     <button class="absolute right-2 top-2 lg:right-4 lg:top-4" onclick={closeImage}>
       <Icon src={XMark} class="size-8 lg:size-12 text-gray-300 transition-colors hover:text-white focus:text-white" />
     </button>
-    <img alt={imageView.image.src} class="object-contain w-full lg:w-3/4" src={imageView.image.src} />
+    <div class="flex flex-col justify-center items-center gap-4">
+      <img alt={imageView.image.src} class="object-contain w-full lg:w-3/4" src={imageView.image.src} />
+
+      {#if imageView.allImages.length > 1}
+        <div class="flex gap-4">
+          <button onclick={previousImage}>
+            <Icon src={ArrowLeft}
+                  class="size-14 lg:size-12 text-gray-300 transition-colors hover:text-white focus:text-white" />
+          </button>
+
+          <button onclick={nextImage}>
+            <Icon src={ArrowRight}
+                  class="size-14 lg:size-12 text-gray-300 transition-colors hover:text-white focus:text-white" />
+          </button>
+        </div>
+      {/if}
+    </div>
   </div>
 {/if}
 

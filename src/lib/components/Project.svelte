@@ -15,6 +15,7 @@
 
   function selectImage() {
     imageView.image = currentImage;
+    imageView.index = currentIndex;
     imageView.allImages = project.images;
   }
 
