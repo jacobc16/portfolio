@@ -1,0 +1,35 @@
+{
+	"singleQuote": true,
+	"arrowParens": "always",
+	"bracketSpacing": true,
+	"endOfLine": "lf",
+	"htmlWhitespaceSensitivity": "ignore",
+	"jsxBracketSameLine": false,
+	"jsxSingleQuote": true,
+	"htmlSelfClosing": false,
+	"printWidth": 120,
+	"proseWrap": "never",
+	"quoteProps": "as-needed",
+	"semi": true,
+	"tabWidth": 2,
+	"trailingComma": "all",
+	"useTabs": false,
+	"vueIndentScriptAndStyle": false,
+	"singleAttributePerLine": true,
+	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+	"pluginSearchDirs": false,
+	"overrides": [
+		{
+			"files": ["**/*.svelte"],
+			"options": {
+				"parser": "svelte"
+			}
+		},
+		{
+			"files": ["**/*.css", "**/*.scss", "**/*.html"],
+			"options": {
+				"singleQuote": false
+			}
+		}
+	]
+}
