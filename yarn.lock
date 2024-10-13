@@ -15,6 +15,11 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
+"@cloudflare/workers-types@^4.20231121.0":
+  version "4.20241011.0"
+  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-4.20241011.0.tgz#4e26fda2ab56038f37c221dd725c6184f6dff52e"
+  integrity sha512-emwBnuFB/2lS1z6NXAeBqrSL8Xwnr7YpgdLuchOmgu/igqBsLLNPBb4Qmgh3neFWUe9wbzQyx030836YF3c3Xw==
+
 "@esbuild/aix-ppc64@0.21.5":
   version "0.21.5"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.21.5.tgz#c7184a326533fcdf1b8ee0733e21c713b975575f"
@@ -371,12 +376,14 @@
   resolved "https://registry.yarnpkg.com/@steeze-ui/heroicons/-/heroicons-2.4.0.tgz#dc68e5dd44079b0ed7f3030078fac3ef3d7b1adf"
   integrity sha512-gxOytXYV/lQiGxkZQC+CP5IWCa+d/vscRKn4JfZXgF8MZEzg9wfl1tTi/GOr3Eg93YkhlhNDwTIGWjhMaEwmvw==
 
-"@sveltejs/adapter-auto@^3.0.0":
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-auto/-/adapter-auto-3.2.5.tgz#b0247c96ecb66769aac3fe2ffe787a68c8805f62"
-  integrity sha512-27LR+uKccZ62lgq4N/hvyU2G+hTP9fxWEAfnZcl70HnyfAjMSsGk1z/SjAPXNCD1mVJIE7IFu3TQ8cQ/UH3c0A==
+"@sveltejs/adapter-cloudflare@^4.7.3":
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-cloudflare/-/adapter-cloudflare-4.7.3.tgz#775b4a8cee3236327d8894687fc2df6e94e123e5"
+  integrity sha512-mHw0Jvd+74jj8fkduA8jrVXgsCY3+NwDc7FrDUiwU1Qe5QEuqPUab8Lv+np+4afEuMtFNytxUJsiiWlNN2w10w==
   dependencies:
-    import-meta-resolve "^4.1.0"
+    "@cloudflare/workers-types" "^4.20231121.0"
+    esbuild "^0.21.5"
+    worktop "0.8.0-next.18"
 
 "@sveltejs/kit@^2.0.0":
   version "2.6.3"
@@ -801,7 +808,7 @@ emoji-regex@^9.2.2:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-9.2.2.tgz#840c8803b0d8047f4ff0cf963176b32d4ef3ed72"
   integrity sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==
 
-esbuild@^0.21.3:
+esbuild@^0.21.3, esbuild@^0.21.5:
   version "0.21.5"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.21.5.tgz#9ca301b120922959b766360d8ac830da0d02997d"
   integrity sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw==
@@ -1636,6 +1643,11 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+regexparam@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/regexparam/-/regexparam-3.0.0.tgz#1673e09d41cb7fd41eaafd4040a6aa90daa0a21a"
+  integrity sha512-RSYAtP31mvYLkAHrOlh25pCNQ5hWnT106VukGaaFfuJrZFkGRX5GhUAdPqpSDXxOhA2c4akmRuplv1mRqnBn6Q==
+
 resolve-from@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
@@ -2006,6 +2018,14 @@ word-wrap@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.5.tgz#d2c45c6dd4fbce621a66f136cbe328afd0410b34"
   integrity sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==
+
+worktop@0.8.0-next.18:
+  version "0.8.0-next.18"
+  resolved "https://registry.yarnpkg.com/worktop/-/worktop-0.8.0-next.18.tgz#546b1ece7b34d01708ac2abec7c1110cd8874bfd"
+  integrity sha512-+TvsA6VAVoMC3XDKR5MoC/qlLqDixEfOBysDEKnPIPou/NvoPWCAuXHXMsswwlvmEuvX56lQjvELLyLuzTKvRw==
+  dependencies:
+    mrmime "^2.0.0"
+    regexparam "^3.0.0"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
