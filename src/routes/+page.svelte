@@ -92,7 +92,7 @@
 {/snippet}
 
 {#if imageView.image}
-  <div class="absolute inset-0 w-full h-full z-10 bg-black/60 flex flex-col justify-center items-center"
+  <div class="fixed inset-0 z-10 bg-black/60 flex flex-col justify-center items-center"
        transition:fade>
     <button class="absolute right-2 top-2 lg:right-4 lg:top-4" onclick={closeImage}>
       <Icon src={XMark} class="size-8 lg:size-12 text-gray-300 transition-colors hover:text-white focus:text-white" />
